@@ -105,6 +105,7 @@ function App() {
       num: 0,
       res: 0,
     });
+    
   };
 
   
@@ -113,27 +114,36 @@ function App() {
     <Wrapper>
       <Screen value={calc.num ? calc.num : calc.res} />
       <ButtonBox>
-        {
-          btnValues.flat().map((btn, i) => {
-            return (
-              <Button key={i} className={btn === "=" ? "equals" : ""} value={btn} onClick={
-                btn === "C" ? resetClickHandler : btn ==="+-" ?
-                  invertClickHandler :
-                  btn === "%" ? percentClickHandler :
-                  btn === "=" ? equalsClickHandler :
-                  btn === "/" || btn === "X" || btn === "-" || btn === "+" ? signClickHandler :
-                  btn === "." ? commaClickHandler :
-                  numClickHandler
-                }
-              
-                />
-              
-          
-            );
-          })}
+        {btnValues.flat().map((btn, i) => {
+          return (
+            <Button
+              key={i}
+              className={btn === "=" ? "equals" : ""}
+              value={btn}
+              onClick={
+                btn === "C"
+                  ? resetClickHandler
+                  : btn === "+-"
+                  ? invertClickHandler
+                  : btn === "%"
+                  ? percentClickHandler
+                  : btn === "="
+                  ? equalsClickHandler
+                  : btn === "/" || btn === "X" || btn === "-" || btn === "+"
+                  ? signClickHandler
+                  : btn === "."
+                  ? commaClickHandler
+                  : numClickHandler
+              }
+            />
+          );
+        })}
       </ButtonBox>
+      <h4 className="work-name">Work done by Jason Hamilton-Ramm 2024</h4>
+    
     </Wrapper>
   );
+  
 }
 
 export default App;
